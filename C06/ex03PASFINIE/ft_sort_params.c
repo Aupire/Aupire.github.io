@@ -6,7 +6,7 @@
 /*   By: gfaure-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 15:37:10 by gfaure-l          #+#    #+#             */
-/*   Updated: 2019/09/12 20:28:40 by gfaure-l         ###   ########.fr       */
+/*   Updated: 2019/09/16 15:56:36 by gfaure-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,35 +25,64 @@ void	ft_print_params(char *str)
 	write(1, "\n", 1);
 }
 
-int		main(int argc, char **argv)
+void	swap(int *a, int *b)
 {
-	int		j;
-	int		i;
-	char tmp[0] = "";
+	int tmp;
 
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
 
-	i = 1;
-	j = 2;
-	argc = 1;
-	while (argv[j] != '\0')
+while (argv[j] != '\0')
+{
+	if (argv[i] < argv[j])
 	{
+		tmp[i] = *argv[i];
+		argv[i] = argv[j];
+		*argv[j] = tmp[i];
+	}
+	j++;
+	i++;
+}
+
+
+void	ft_swap(
+		{
+		while (argv[j] != '\0')
+		{
 		if (argv[i] < argv[j])
 		{
-			tmp[i] = *argv[i];
-			argv[i] = argv[j];
-			*argv[j] = tmp[i];
+		tmp[i] = *argv[i];
+		argv[i] = argv[j];
+		*argv[j] = tmp[i];
 		}
 		j++;
 		i++;
-	}
-	j = 1;
-	while (argv[j])
-	{
-		ft_print_params(argv[j]);
-		j++;
-	}
-	return (0);
-}
+		}
+		}
+
+
+		int		main(int argc, char **argv)
+		{
+		int		j;
+		int		i;
+		char tmp[0] = "";
+
+
+		i = 1;
+		j = 2;
+		argc = 1;
+
+
+		j = 1;
+		while (argv[j])
+		{
+			ft_print_params(argv[j]);
+			j++;
+		}
+		return (0);
+		}
 
 int	ft_strcmp(char *s1, char *s2)
 {

@@ -6,7 +6,7 @@
 /*   By: gfaure-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:59:33 by gfaure-l          #+#    #+#             */
-/*   Updated: 2019/09/16 13:56:57 by gfaure-l         ###   ########.fr       */
+/*   Updated: 2019/09/16 15:08:17 by gfaure-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_putnbr(int nb)
 		n = -nb;
 		write(1, "-", 1);
 	}
-	if
+	else 
 		n = nb;
 	if (n > 9)
 	{
@@ -33,4 +33,11 @@ void	ft_putnbr(int nb)
 		n += 48;
 		write(1, &n, 4);
 	}
+}
+
+#include <stdio.h>
+
+int	main()
+{
+	ft_putnbr(214748364);
 }
