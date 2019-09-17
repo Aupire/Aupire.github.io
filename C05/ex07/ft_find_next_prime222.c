@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfaure-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/15 15:31:41 by gfaure-l          #+#    #+#             */
-/*   Updated: 2019/09/17 21:47:59 by gfaure-l         ###   ########.fr       */
+/*   Created: 2019/09/15 17:29:23 by gfaure-l          #+#    #+#             */
+/*   Updated: 2019/09/15 17:40:55 by gfaure-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
+int	ft_find_next_prime(int nb)
 {
-	long i;
-	long j;
+	int i;
 
-	j = nb;
-	i = 1;
-	if (j < 0)
-		return (0);
-	while (i * i < j)
-		i++;
-	if (i * i == j)
-		return (i);
-	return (0);
+	i = 2;
+	if (nb < 2)
+		return (2);
+	while (i < nb)
+	{
+		if (nb % i != 0)
+			i++;
+		else
+			nb++;
+	}
+	return (nb);
 }
 
 #include <stdio.h>
 int	main()
 {
-	printf("%d\n", ft_sqrt(2147395600));
+	printf("%d\n", ft_find_next_prime(6));
 	return (0);
 }
+
