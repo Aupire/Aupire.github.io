@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfaure-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 14:59:33 by gfaure-l          #+#    #+#             */
-/*   Updated: 2019/09/17 13:30:57 by gfaure-l         ###   ########.fr       */
+/*   Created: 2019/09/06 14:40:39 by gfaure-l          #+#    #+#             */
+/*   Updated: 2019/09/12 16:54:49 by gfaure-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putnbr(int nb)
+void	ft_putstr(char *str)
 {
-	unsigned int n;
+	int i;
 
-	if (nb < 0)
+	i = 0;
+	while (str[i])
 	{
-		n = -nb;
-		write(1, "-", 1);
-	}
-	else
-		n = nb;
-	if (n > 9)
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
-	else
-	{
-		n += 48;
-		write(1, &n, 1);
+		write(1, &str[i], 1);
+		i++;
 	}
 }
-
-int	main ()
-{
-	ft_putnbr(-2147483648);
-	return 0;
-}	

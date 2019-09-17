@@ -6,7 +6,7 @@
 /*   By: gfaure-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 15:37:10 by gfaure-l          #+#    #+#             */
-/*   Updated: 2019/09/16 15:56:36 by gfaure-l         ###   ########.fr       */
+/*   Updated: 2019/09/17 12:42:34 by gfaure-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,83 +25,36 @@ void	ft_print_params(char *str)
 	write(1, "\n", 1);
 }
 
-void	swap(int *a, int *b)
-{
-	int tmp;
 
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-
-while (argv[j] != '\0')
+int		main(int argc, char **argv)
 {
-	if (argv[i] < argv[j])
+	(void) argc;
+	(void) argv;
+	int n;
+	int m;
+	int i;
+	int j;
+	char *a = NULL;
+	char *b = NULL;
+	char *tmp = NULL;
+
+	i = 1;
+	j = 2;
+	n = 0;
+	m = 0;
+
+	while (argv[n])
 	{
-		tmp[i] = *argv[i];
-		argv[i] = argv[j];
-		*argv[j] = tmp[i];
-	}
-	j++;
-	i++;
-}
-
-
-void	ft_swap(
+		m = argv[i] - argv[j];
+		if (m > 0)
 		{
-		while (argv[j] != '\0')
-		{
-		if (argv[i] < argv[j])
-		{
-		tmp[i] = *argv[i];
-		argv[i] = argv[j];
-		*argv[j] = tmp[i];
+			tmp[i] = argv[i];
+			argv[i] = argv[j];
+			argv[j] = tmp[i];
 		}
 		j++;
 		i++;
-		}
-		}
-
-
-		int		main(int argc, char **argv)
-		{
-		int		j;
-		int		i;
-		char tmp[0] = "";
-
-
-		i = 1;
-		j = 2;
-		argc = 1;
-
-
-		j = 1;
-		while (argv[j])
-		{
-			ft_print_params(argv[j]);
-			j++;
-		}
-		return (0);
-		}
-
-int	ft_strcmp(char *s1, char *s2)
-{
-	int n;
-	int c;
-
-	n = 0;
-	c = 0;
-	while (s1[n] || s2[n])
-	{
-		if (s1[n] == s2[n])
-		{
-			n++;
-		}
-		else if (s1[n] != s2[n])
-		{
-			c = s1[n] - s2[n];
-			return (c);
-		}
 	}
-	return (c);
+	return (0);
 }
+

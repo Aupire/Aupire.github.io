@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfaure-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 14:59:33 by gfaure-l          #+#    #+#             */
-/*   Updated: 2019/09/17 13:30:57 by gfaure-l         ###   ########.fr       */
+/*   Created: 2019/09/17 12:46:04 by gfaure-l          #+#    #+#             */
+/*   Updated: 2019/09/17 17:21:01 by gfaure-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
-void	ft_putnbr(int nb)
+void	*ft_strdup(char *src)
 {
-	unsigned int n;
-
-	if (nb < 0)
-	{
-		n = -nb;
-		write(1, "-", 1);
-	}
-	else
-		n = nb;
-	if (n > 9)
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
-	else
-	{
-		n += 48;
-		write(1, &n, 1);
-	}
+	char *ptr = NULL;
+	ptr = malloc(7 * sizeof(char));
+	ptr = src;
+	printf("malloc : %s\n", ptr);
+	return 0;
 }
 
-int	main ()
+
+int	main()
 {
-	ft_putnbr(-2147483648);
+	ft_strdup("chacha");
+	printf("strdup : %s\n", strdup("aaa"));
 	return 0;
-}	
+}
+
+
+
+
+
+
+
