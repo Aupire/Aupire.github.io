@@ -6,7 +6,7 @@
 /*   By: gfaure-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/15 15:50:25 by gfaure-l          #+#    #+#             */
-/*   Updated: 2019/09/18 11:13:27 by gfaure-l         ###   ########.fr       */
+/*   Updated: 2019/09/17 23:25:18 by gfaure-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,14 @@ int	ft_sqrt(int nb)
 int	ft_is_prime(int nb)
 {
 	int i;
-	long racine;
 
 	i = 2;
+	if (nb < 2)
+		return (0);
+	if (nb == 2 || nb == 3)
+		return (1);
 	if (nb > 25000)
-		racine = ft_sqrt(nb);
+		nb = ft_sqrt(nb);
 	while (nb % i != 0 && i < (nb - 1))
 		i++;
 	if (nb % i == 0)
@@ -41,10 +44,10 @@ int	ft_is_prime(int nb)
 
 int	ft_next_prime(int nb)
 {
-	if (nb < 2)
-		return (2);
 	while (ft_is_prime(nb) == 0)
 		nb++;
+	if (ft_is_prime(nb) == 1)
+		return (nb);
 	return (0);
 }
 
