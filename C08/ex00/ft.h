@@ -1,47 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfaure-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 23:33:47 by gfaure-l          #+#    #+#             */
-/*   Updated: 2019/09/18 14:41:28 by gfaure-l         ###   ########.fr       */
+/*   Created: 2019/09/18 17:30:28 by gfaure-l          #+#    #+#             */
+/*   Updated: 2019/09/19 17:54:35 by gfaure-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef FT_H
+# define FT_H
 
-int	*ft_range(int min, int max)
-{
-	int *tab = NULL;
-	int i;
-
-	if (min >= max)
-		return (0);
-
-	i = 0;
-	tab = malloc((max - min) * sizeof(int));
-	if (tab == NULL)
-		return (0);
-	while (max > min)
-	{
-		tab[i] = min;
-		min++;
-		i++;
-	}
-	return (tab);
-}
-
-#include <stdio.h>
-int	main()
-{
-	int n = 0;
-	int *ta;
-	ta = ft_range(2,9);
-	while (ta[n])
-	{
-		printf("%d\n", ta[n]);
-		n++;
-	}
-}
+void	ft_putchar(char c);
+void	ft_swap(int *a, int *b);
+void	ft_putstr(char *str);
+int		ft_strlen(char *str);
+int		ft_strcmp(char *s1, char *s2);
+#endif

@@ -1,47 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft_point.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfaure-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 23:33:47 by gfaure-l          #+#    #+#             */
-/*   Updated: 2019/09/18 14:41:28 by gfaure-l         ###   ########.fr       */
+/*   Created: 2019/09/19 17:25:39 by gfaure-l          #+#    #+#             */
+/*   Updated: 2019/09/19 17:28:22 by gfaure-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int	*ft_range(int min, int max)
+#include "ft_point.h"
+void set_point(t_point *point)
 {
-	int *tab = NULL;
-	int i;
-
-	if (min >= max)
-		return (0);
-
-	i = 0;
-	tab = malloc((max - min) * sizeof(int));
-	if (tab == NULL)
-		return (0);
-	while (max > min)
-	{
-		tab[i] = min;
-		min++;
-		i++;
-	}
-	return (tab);
+	point->x = 42;
+	point->y = 21;
 }
 
 #include <stdio.h>
-int	main()
+int main(void)
 {
-	int n = 0;
-	int *ta;
-	ta = ft_range(2,9);
-	while (ta[n])
-	{
-		printf("%d\n", ta[n]);
-		n++;
-	}
+	t_point point;
+	set_point(&point);
+	printf("%d | %d\n", point.x, point.y);
+	return (0);
 }

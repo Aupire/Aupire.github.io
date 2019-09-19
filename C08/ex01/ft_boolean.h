@@ -1,47 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft_boolean.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfaure-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 23:33:47 by gfaure-l          #+#    #+#             */
-/*   Updated: 2019/09/18 14:41:28 by gfaure-l         ###   ########.fr       */
+/*   Created: 2019/09/18 21:23:37 by gfaure-l          #+#    #+#             */
+/*   Updated: 2019/09/19 17:58:20 by gfaure-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef FT_BOOLEAN_H
+# define FT_BOOLEAN_H
+# define EVEN(x) (!(x % 2))
+# define EVEN_MSG "I have an even number of arguments.\n"
+# define ODD_MSG "I have an odd number of arguments.\n"
+# define SUCCESS 0
+# define TRUE 1
+# define FALSE 0
 
-int	*ft_range(int min, int max)
-{
-	int *tab = NULL;
-	int i;
-
-	if (min >= max)
-		return (0);
-
-	i = 0;
-	tab = malloc((max - min) * sizeof(int));
-	if (tab == NULL)
-		return (0);
-	while (max > min)
-	{
-		tab[i] = min;
-		min++;
-		i++;
-	}
-	return (tab);
-}
-
-#include <stdio.h>
-int	main()
-{
-	int n = 0;
-	int *ta;
-	ta = ft_range(2,9);
-	while (ta[n])
-	{
-		printf("%d\n", ta[n]);
-		n++;
-	}
-}
+typedef int	t_bool;
+#endif

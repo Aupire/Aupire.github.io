@@ -1,47 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfaure-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 23:33:47 by gfaure-l          #+#    #+#             */
-/*   Updated: 2019/09/18 14:41:28 by gfaure-l         ###   ########.fr       */
+/*   Created: 2019/09/03 21:30:37 by gfaure-l          #+#    #+#             */
+/*   Updated: 2019/09/06 13:57:53 by gfaure-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int	*ft_range(int min, int max)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int *tab = NULL;
-	int i;
+	int n;
+	int c;
 
-	if (min >= max)
-		return (0);
-
-	i = 0;
-	tab = malloc((max - min) * sizeof(int));
-	if (tab == NULL)
-		return (0);
-	while (max > min)
+	n = 0;
+	c = 0;
+	while (s1[n] || s2[n])
 	{
-		tab[i] = min;
-		min++;
-		i++;
+		if (s1[n] == s2[n])
+		{
+			n++;
+		}
+		else if (s1[n] != s2[n])
+		{
+			c = s1[n] - s2[n];
+			return (c);
+		}
 	}
-	return (tab);
-}
-
-#include <stdio.h>
-int	main()
-{
-	int n = 0;
-	int *ta;
-	ta = ft_range(2,9);
-	while (ta[n])
-	{
-		printf("%d\n", ta[n]);
-		n++;
-	}
+	return (c);
 }
